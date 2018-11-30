@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="p-2"> 
-    	
-    	<div class="card text-center"> 
-    		<img class="img-fluid" src="{{event.Image}}" alt="No image yet!">
+    <div class="w-100 d-flex justify-content-center p-2"> 
+        	<div class="card mx-auto text-center rounded"> 
+    		<img class="img-fluid rounded" src="{{event.Image}}" alt="No image yet!">
 	       	<div class="card-body">
-	       		<a class="btn btn-secondary" href="/">Back to Event-List</a>
+	       		<a class="btn btn-secondary mb-3" href="../list">Back to Event-List</a>
 	       		<div class="card-header">
 	       			<h2 class="page-header">{{event.name}}</h2>
 	       		</div>

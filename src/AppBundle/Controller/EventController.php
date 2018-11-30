@@ -17,14 +17,23 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EventController extends Controller
 {
+	/**
+    * @Route("/", name="index")
+    */
+   public function startAction(){
+	//This will only be used for some Landing Page
+       
+       return $this->render('event/index.html.twig');
+   }
+
    /**
-    * @Route("/", name="event_list")
+    * @Route("event/list", name="event_list")
     */
    public function listAction(){
 	// Here we will use getDoctrine to use doctrine and we will select the entity that we want to work with and we used findAll() to bring all the information from it and we will save it inside a variable named todos and the type of the result will be an array 
 	$events = $this->getDoctrine()->getRepository('AppBundle:Event')->findAll();
        
-       return $this->render('event/index.html.twig', array('events' => $events));
+       return $this->render('event/event.html.twig', array('events' => $events));
    }
 
     /**
@@ -47,7 +56,7 @@ class EventController extends Controller
        	->add('address', TextType::class, array('attr' => array('class'=> 'form-control mb-3')))
        	->add('url', TextType::class, array('attr' => array('class'=> 'form-control mb-3')))
        	->add('event_type', ChoiceType::class, array('choices'=>array('Music'=>'Music', 'Sport'=>'Sport', 'Movie'=>'Movie', 'Theater'=>'Theater'),'attr' => array('class'=> 'form-control mb-3')))
-   		->add('save', SubmitType::class, array('label'=> 'Create Event', 'attr' => array('class'=> 'btn btn-sm btn-primary mb-3')))
+   		->add('save', SubmitType::class, array('label'=> 'Create Event', 'attr' => array('class'=> 'btn btn-sm btn-success mb-3')))
        ->getForm();
        $form->handleRequest($request);
 
@@ -135,7 +144,7 @@ class EventController extends Controller
        	->add('address', TextType::class, array('attr' => array('class'=> 'form-control mb-3')))
        	->add('url', TextType::class, array('attr' => array('class'=> 'form-control mb-3')))
        	->add('event_type', ChoiceType::class, array('choices'=>array('Music'=>'Music', 'Sport'=>'Sport', 'Movie'=>'Movie', 'Theater'=>'Theater'),'attr' => array('class'=> 'form-control mb-3')))
-   		->add('save', SubmitType::class, array('label'=> 'Update Event', 'attr' => array('class'=> 'btn btn-sm btn-primary mb-3')))
+   		->add('save', SubmitType::class, array('label'=> 'Update Event', 'attr' => array('class'=> 'btn btn-sm btn-success mb-3')))
        ->getForm();
        $form->handleRequest($request);
 

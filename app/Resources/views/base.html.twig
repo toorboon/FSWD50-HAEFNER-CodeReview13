@@ -8,12 +8,13 @@
     <!-- Bootstrap CSS -->
     {% block stylesheets %}{% endblock %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <title>{% block title %}Welcome!{% endblock %}</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">New Eventlist</a>
+      <a class="navbar-brand" href="/">New Eventlist</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,6 +23,9 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/event/list">Vienna Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/event/create">Add Event</a>
@@ -34,11 +38,11 @@
       </div>
     </nav> 
 
-     <div class="container">
+     <div class="h-100 container-fluid">
       <div class="row">
-      <div class="col-md-12">
+      
          {% block body %}{% endblock %}
-      </div>
+      
       </div>
     
     </div><!-- /.container -->
