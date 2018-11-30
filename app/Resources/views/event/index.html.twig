@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+ 	<h2 class="page-header"> Latest Events </h2>
+  <table class="table table-striped">
+   <thead>
+       <tr>
+           <th>#</th>
+           <th>Event</th>
+           <th>Due Date</th>
+           <th></th>
+       </tr>
+   </thead>
+{% for event in events %}
+   <tbody>
+       <tr>
+           <th scope="row">{{event.id}}</th>
+           <td>{{event.name}}</td>
+           <td>{{event.startDate|date('F j, Y, g:i a')}}</td>
+           <td> <a href="/event/details/{{event.id}}" class="btn btn-success">View</a>
+                   
+           <a href="/event/edit/{{event.id}}" class="btn btn-secondary">Edit</a>
+           <a href="/event/delete/{{event.id}}" class="btn btn-danger">Delete</a>        
+           </td>
+       </tr> 
+{% endfor %}
+   </tbody>
+   </table>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="p-2"> 
+    	
+    	<div class="card text-center"> 
+    		<img class="img-fluid" src="{{event.Image}}" alt="No image yet!">
+	       	<div class="card-body">
+	       		<a class="btn btn-secondary" href="/">Back to Event-List</a>
+	       		<div class="card-header">
+	       			<h2 class="page-header">{{event.name}}</h2>
+	       		</div>
+		       <ul class="list-group">
+		          	<li class="list-group-item">Start Date: {{event.StartDate|date('F j, Y, g:i a')}}</li>
+		           	<li class="list-group-item">Capacity: {{event.Capacity}}</li>
+		           	<li class="list-group-item">E-Mail: {{event.Email}}</li>
+		           	<li class="list-group-item">Phone: {{event.Phone}}</li>
+		           	<li class="list-group-item">Address: {{event.Address}}</li>
+		           	<li class="list-group-item">Url: {{event.Url}}</li>
+		           	<li class="list-group-item">Event Type: {{event.EventType}}</li>
+		           	<li class="list-group-item">Description: {{event.description}}</li>
+		       </ul>
+		       <small class="text-muted block">Created {{event.CreateDate|date('F j, Y, g:i a')}}</small>
+		   </div>
+		</div>
+    </div>
+{% endblock %}
